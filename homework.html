@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .chart-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        .chart-box {
+            border: 1px solid rgb(98, 146, 158);
+            padding: 10px;
+        }
+
+        canvas {
+            width: 100% !important;
+            height: auto !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="chart-container">
+        <!-- 折線圖 -->
+        <div class="chart-box">
+            <canvas id="lineChart"></canvas>
+            <script>
+                // 折線圖的數據和配置
+                new Chart(document.getElementById('lineChart'), {
+                    type: 'line',
+                    data: {
+                        labels: ['一月', '二月', '三月', '四月'],
+                        datasets: [{
+                            label: '訪客數量',
+                            data: [65, 59, 80, 81],
+                            fill: false,
+                            borderColor: 'rgb(75, 192, 192)',
+                            tension: 0.1
+                        }]
+                    }
+                });
+            </script>
+        </div>
+        <!-- 長條圖 -->
+        <div class="chart-box">
+            <canvas id="barChart"></canvas>
+            <script>
+                // 長條圖的數據和配置
+                new Chart(document.getElementById('barChart'), {
+                    type: 'bar',
+                    data: {
+                        labels: ['一月', '二月', '三月', '四月'],
+                        datasets: [{
+                            label: '銷售額',
+                            data: [200, 300, 400, 500],
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(255, 206, 86, 0.2)',
+                                'rgba(75, 192, 192, 0.2)'
+                            ],
+                            borderColor: [
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(75, 192, 192, 1)'
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+            </script>
+
+
+
+
+        </div>
+        <!-- 圓餅圖 -->
+        <div class="chart-box">
+            <canvas id="pieChart"></canvas>
+            <script>// 圓餅圖的數據和配置
+                new Chart(document.getElementById('pieChart'), {
+                    type: 'pie',
+                    data: {
+                        labels: ['紅色', '藍色', '黃色', '綠色'],
+                        datasets: [{
+                            label: '顏色分佈',
+                            data: [12, 19, 3, 5],
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(255, 206, 86, 0.2)',
+                                'rgba(75, 192, 192, 0.2)'
+                            ],
+                            borderColor: [
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(75, 192, 192, 1)'
+                            ],
+                            borderWidth: 1
+                        }]
+                    }
+                });
+                </script>
+        </div>
+        <!-- 雷達圖 -->
+        <div class="chart-box">
+            <canvas id="radarChart"></canvas>
+            <script>// 雷達圖的數據和配置
+                new Chart(document.getElementById('radarChart'), {
+                    type: 'radar',
+                    data: {
+                        labels: ['食品', '飲料', '服裝', '電子產品', '書籍'],
+                        datasets: [{
+                            label: '消費類別',
+                            data: [65, 59, 90, 81, 56],
+                            fill: true,
+                            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                            borderColor: 'rgb(255, 99, 132)',
+                            pointBackgroundColor: 'rgb(255, 99, 132)',
+                            pointBorderColor: '#fff',
+                            pointHoverBackgroundColor: '#fff',
+                            pointHoverBorderColor: 'rgb(255, 99, 132)'
+                        }]
+                    },
+                    options: {
+                        elements: {
+                            line: {
+                                borderWidth: 3
+                            }
+                        }
+                    }
+                });
+                </script>
+        </div>
+        <!-- 極地區域圖 -->
+        <div class="chart-box">
+            <canvas id="polarAreaChart"></canvas>
+            <script> 
+ 	
+                // 極地區域圖的數據和配置
+                new Chart(document.getElementById('polarAreaChart'), {
+                    type: 'polarArea',
+                    data: {
+                        labels: ['Q1', 'Q2', 'Q3', 'Q4'],
+                        datasets: [{
+                            label: '季度銷售',
+                            data: [10, 20, 30, 40],
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.5)',
+                                'rgba(54, 162, 235, 0.5)',
+                                'rgba(255, 206, 86, 0.5)',
+                                'rgba(75, 192, 192, 0.5)'
+                            ]
+                        }]
+                    }
+                });
+                </script>
+        </div>
+        <!-- 泡泡圖 -->
+        <div class="chart-box">
+            <canvas id="bubbleChart"></canvas>
+            <script>// 泡泡圖的數據和配置
+                new Chart(document.getElementById('bubbleChart'), {
+                    type: 'bubble',
+                    data: {
+                        datasets: [{
+                            label: '泡泡資料',
+                            data: [{
+                                x: 20,
+                                y: 30,
+                                r: 15
+                            }, {
+                                x: 40,
+                                y: 10,
+                                r: 10
+                            }],
+                            backgroundColor: 'rgb(255, 99, 132)'
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            x: {
+                                beginAtZero: true
+                            },
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+                </script>
+        </div>
+        <!-- 環形圖 -->
+        <div class="chart-box">
+            <canvas id="doughnutChart"></canvas>
+            <script>// 環形圖的數據和配置
+                new Chart(document.getElementById('doughnutChart'), {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['紅色', '藍色', '黃色'],
+                        datasets: [{
+                            label: '顏色分佈',
+                            data: [300, 50, 100],
+                            backgroundColor: [
+                                'rgb(255, 99, 132)',
+                                'rgb(54, 162, 235)',
+                                'rgb(255, 206, 86)'
+                            ],
+                            hoverOffset: 4
+                        }]
+                    }
+                });
+                </script>
+        </div>
+        <!-- 水平長條圖 -->
+        <div class="chart-box">
+            <canvas id="horizontalBarChart"></canvas>
+            <script>// 水平長條圖的數據和配置
+                new Chart(document.getElementById('horizontalBarChart'), {
+                    type: 'bar',
+                    data: {
+                        labels: ['2019', '2020', '2021', '2022'],
+                        datasets: [{
+                            label: '年度收入',
+                            data: [50, 60, 70, 80],
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(255, 206, 86, 0.2)',
+                                'rgba(75, 192, 192, 0.2)'
+                            ],
+                            borderColor: [
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(75, 192, 192, 1)'
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        indexAxis: 'y',
+                        scales: {
+                            x: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+                </script>
+        </div>
+    </div>
+
+    <div id="grid">
+        
+        <div id="cell2">Cell 2</div>
+        <div id="cell3">Cell 3</div>
+        <div id="cell4">Cell 4</div>
+        <div id="cell5">Cell 5</div>
+        <div id="cell6">Cell 6</div>
+        <div id="cell7">Cell 7</div>
+        <div id="cell8">Cell 8</div>
+    </div>
+
+    <script>
+        // 刷新時間設定（單位：秒）
+        const refreshTimes = [1, 2, 3, 4, 5, 6, 7, 8]; // 每個格子的刷新時間不同
+
+        // 更新格子內容的函數
+        function updateCell(cellId) {
+            const cell = document.getElementById(cellId);
+            cell.innerHTML = `Cell ${cellId} - Updated at ${new Date().toLocaleTimeString()}`;
+        }
+
+        // 初始化各個格子的定時器
+        refreshTimes.forEach((time, index) => {
+            const cellId = `cell${index + 1}`;
+            setInterval(() => {
+                updateCell(cellId);
+            }, time * 1000); // 將秒轉換為毫秒
+        });
+    </script>
+
+
+
+
+</body>
+</html>
