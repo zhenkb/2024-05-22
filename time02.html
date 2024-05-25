@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>不同刷新時間的八格</title>
+</head>
+<body>
+    <div id="grid">
+        <div id="cell1">Cell 1 - Initial Content</div>
+        <div id="cell2">Cell 2 - Initial Content</div>
+        <div id="cell3">Cell 3 - Initial Content</div>
+        <div id="cell4">Cell 4 - Initial Content</div>
+        <div id="cell5">Cell 5 - Initial Content</div>
+        <div id="cell6">Cell 6 - Initial Content</div>
+        <div id="cell7">Cell 7 - Initial Content</div>
+        <div id="cell8">Cell 8 - Initial Content</div>
+    </div>
+
+    <script>
+        // 刷新時間設定（單位：秒）
+        const refreshTimes = [1, 2, 3, 4, 5, 6, 7, 8]; // 每個格子的刷新時間不同
+
+        // 更新格子內容的函數
+        function updateCell(cellId) {
+            const cell = document.getElementById(cellId);
+            cell.innerHTML = `Cell ${cellId.slice(4)} - Updated at ${new Date().toLocaleTimeString()}`;
+        }
+
+        // 初始化各個格子的定時器
+        refreshTimes.forEach((time, index) => {
+            const cellId = `cell${index + 1}`;
+            setInterval(() => {
+                updateCell(cellId);
+            }, time * 1000); // 將秒轉換為毫秒
+        });
+    </script>
+</body>
+</html>
